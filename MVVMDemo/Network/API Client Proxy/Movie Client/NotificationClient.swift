@@ -1,11 +1,3 @@
-//
-//  NotificationClient.swift
-//  HomeServices
-//
-//  Created by Shantaram Kokate on 10/4/18.
-//  Copyright © 2018 Shantaram Kokate. All rights reserved.
-//
-
 import Foundation
 class NotificationClient: APIClient {
     

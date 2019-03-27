@@ -1,13 +1,12 @@
 //
-//  UIImageViewExtension.swift
-//  DeliveryPulse
+//  MovieViewController.swift
+//  MVVMDemo
 //
-//  Created by Sharad Katre on 26/02/19.
-//  Copyright © 2019 Mobisoft Infotech. All rights reserved.
+//  Created by Shantaram K on 20/03/19.
+//  Copyright © 2019 Shantaram K. All rights reserved.
 //
 
 import UIKit
-import SDWebImage
 
 private var activityIndicatorAssociationKey: UInt8 = 0
 
@@ -20,39 +19,20 @@ enum ImageSize {
 
 extension UIImageView {
     
-    func setImage(withImageId imageId: String, placeholderImage: String) {
+
+    func setImage(withImageId imageId: String, placeholderImage: UIImage, size: ImageSize = .original) {
         
-        let baseURL = Environment().configuration(Plist.baseURL)
-        
-        let url =  String(format: "%@%@%@%@", baseURL, TenantConfig.tenantId, APIEndpoint.imageDownload, imageId)
-        
-        self.showActivityIndicator()
-        self.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: placeholderImage), options: .retryFailed, progress: { (_, _, _) in
-            
-        }, completed: { (_, _, _, _) in
-            self.hideActivityIndicator()
-        })
-    }
-    
-    func setImage(withImageId imageId: String, placeholderImage: UIImage, size: ImageSize) {
-        
-        let baseURL = Environment().configuration(Plist.baseURL)
+        let baseURL = Domain.assest
         
         var urlString: String!
         
         if size == .thumbnail {
-            urlString = String(format: "%@%@%@thumbnail_%@", baseURL, TenantConfig.tenantId, APIEndpoint.imageDownload, imageId)
+            urlString = String(format: "%@thumbnail_%@", baseURL, imageId)
         } else {
-            urlString = String(format: "%@%@%@%@", baseURL, TenantConfig.tenantId, APIEndpoint.imageDownload, imageId)
+            urlString = String(format: "%@%@", baseURL, imageId)
         }
         cacheImage(urlString: urlString, placeholder: placeholderImage)
-        /*
-         self.showActivityIndicator()
-         self.sd_setImage(with: URL(string: urlString), placeholderImage: placeholderImage, options: .retryFailed, progress: { (_, _, _) in
-         
-         }, completed: { (image, _, _, _) in
-         self.hideActivityIndicator()
-         }) */
+       
     }
     
     var activityIndicator: UIActivityIndicatorView! {
@@ -105,21 +85,10 @@ extension UIImageView {
         
         var urlRequest = URLRequest(url: URL(string: urlwithPercent!)!)
         
-        log.verbose(urlRequest)
-        
         //common headers
         urlRequest.setValue(ContentType.ENUS.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptLangauge.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        if let apiSessionKey = UserDefaultRepository.sharedInstance.getUserDefaultsFromDB(key: UserDefaultKeys.sessionKey) {
-            if !apiSessionKey.isEmpty {
-                let sessionKey = "Bearer " + apiSessionKey
-                log.verbose(sessionKey)
-                print(sessionKey)
-                urlRequest.setValue( sessionKey, forHTTPHeaderField: HTTPHeaderField.authentication.rawValue)
-            }
-            
-        }
         
         self.image = placeholder
         URLSession.shared.dataTask(with: urlRequest) {data, _, _ in

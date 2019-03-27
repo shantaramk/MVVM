@@ -9,22 +9,132 @@
 import UIKit
 
 class MovieViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    //MARK: Internal Properties
+    
+    let tableView = UITableView(frame: .zero, style: .plain)
+    var stackView: UIStackView {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        return stackView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var filterButton: UIButton {
+        let button = UIButton(frame: .zero)
+        button.setTitle("Filter By Name", for: .normal)
+        button.backgroundColor = .red
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
+        return button
     }
-    */
+    
+    let viewModel = MovieViewModel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        prepareUI()
+        setData()
+        fetchMovieList()
+    }
+    
+    func setData() {
+        self.navigationItem.title = "Movie"
+    }
+    
+}
 
+//MARK: Prepare UI
+
+extension MovieViewController {
+    
+    func prepareUI() {
+        prepareButton()
+        prepareTableView()
+        prepareStackView()
+        prepareViewModelObserver()
+    }
+    
+    func prepareStackView() {
+        let stackView = UIStackView(arrangedSubviews: [tableView, filterButton])
+        stackView.axis = .vertical
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0.0).isActive = true
+        stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0.0).isActive = true
+        stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0.0).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0.0).isActive = true
+    }
+    
+    func prepareTableView() {
+        self.view.backgroundColor = .white
+        self.tableView.separatorStyle   = .none
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+         self.tableView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellReuseIdentifier: "MovieViewCell")
+
+    }
+    
+    func prepareButton() {
+       self.view.addSubview(filterButton)
+       // self.filterButton.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
+    }
+}
+
+//MARK: Action
+
+extension MovieViewController {
+    
+    @objc func filterButtonTapped(_ button: UIButton) {
+         viewModel.movies = viewModel.movies?.sortByName()
+    }
+}
+//MARK: Private Methods
+
+extension MovieViewController {
+    
+    func fetchMovieList() {
+        viewModel.fetchMovieList()
+    }
+    
+    func prepareViewModelObserver() {
+        self.viewModel.movieDidChanges = { (finished, error) in
+            if !error {
+                self.reloadTableView()
+            }
+        }
+    }
+    
+    func reloadTableView() {
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - UITableView Delegate And Datasource Methods
+
+extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.movies!.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell: MovieViewCell = tableView.dequeueReusableCell(withIdentifier: "MovieViewCell", for: indexPath as IndexPath) as? MovieViewCell else {
+            fatalError("AddressCell cell is not found")
+        }
+        
+        let movie = viewModel.movies![indexPath.row]
+       cell.movieItem = movie
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 160
+        tableView.rowHeight = UITableView.automaticDimension
+        return UITableView.automaticDimension
+    }
 }

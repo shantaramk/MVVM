@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C203FC5224B9B1C0074BF43 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C203FC4224B9B1C0074BF43 /* UIImageViewExtension.swift */; };
+		4C203FC9224B9F1C0074BF43 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C203FC7224B9F1C0074BF43 /* MovieViewCell.swift */; };
+		4C203FCA224B9F1C0074BF43 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C203FC8224B9F1C0074BF43 /* MovieViewCell.xib */; };
+		4C203FCC224BA9DF0074BF43 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C203FCB224BA9DF0074BF43 /* MovieViewController.swift */; };
+		4C2315E7224A1E9C00F64090 /* AppURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2315E6224A1E9C00F64090 /* AppURL.swift */; };
 		4C24FB40223F934F00492D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24FB3F223F934F00492D46 /* AppDelegate.swift */; };
 		4C24FB42223F934F00492D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24FB41223F934F00492D46 /* ViewController.swift */; };
 		4C24FB45223F934F00492D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C24FB43223F934F00492D46 /* Main.storyboard */; };
@@ -14,6 +19,12 @@
 		4C24FB4A223F935600492D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C24FB48223F935600492D46 /* LaunchScreen.storyboard */; };
 		4C24FB55223F935600492D46 /* MVVMDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24FB54223F935600492D46 /* MVVMDemoTests.swift */; };
 		4C24FB60223F935600492D46 /* MVVMDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C24FB5F223F935600492D46 /* MVVMDemoUITests.swift */; };
+		4C298B2522423C520089B67F /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C298B2422423C520089B67F /* MovieViewModel.swift */; };
+		4C298B3A2242660D0089B67F /* MovieDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C298B392242660D0089B67F /* MovieDataSource.swift */; };
+		4C298B3C2242685D0089B67F /* MovieAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C298B3B2242685D0089B67F /* MovieAPIService.swift */; };
+		4C298B422242692E0089B67F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C298B412242692E0089B67F /* Movie.swift */; };
+		4C298B4522426AEE0089B67F /* movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C298B4422426AEE0089B67F /* movie.json */; };
+		4C30446D22439DAE006FC449 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30446C22439DAE006FC449 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C203FC4224B9B1C0074BF43 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		4C203FC7224B9F1C0074BF43 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
+		4C203FC8224B9F1C0074BF43 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
+		4C203FCB224BA9DF0074BF43 /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		4C2315E6224A1E9C00F64090 /* AppURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppURL.swift; sourceTree = "<group>"; };
 		4C24FB3C223F934F00492D46 /* MVVMDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVMDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C24FB3F223F934F00492D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C24FB41223F934F00492D46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +63,12 @@
 		4C24FB5B223F935600492D46 /* MVVMDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C24FB5F223F935600492D46 /* MVVMDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMDemoUITests.swift; sourceTree = "<group>"; };
 		4C24FB61223F935600492D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C298B2422423C520089B67F /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		4C298B392242660D0089B67F /* MovieDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataSource.swift; sourceTree = "<group>"; };
+		4C298B3B2242685D0089B67F /* MovieAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIService.swift; sourceTree = "<group>"; };
+		4C298B412242692E0089B67F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		4C298B4422426AEE0089B67F /* movie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = movie.json; path = MVVMDemo/movie.json; sourceTree = SOURCE_ROOT; };
+		4C30446C22439DAE006FC449 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +96,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C203FC6224B9F040074BF43 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4C203FC7224B9F1C0074BF43 /* MovieViewCell.swift */,
+				4C203FC8224B9F1C0074BF43 /* MovieViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4C2315E5224A1E7B00F64090 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				4C2315E6224A1E9C00F64090 /* AppURL.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		4C24FB33223F934F00492D46 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +136,14 @@
 		4C24FB3E223F934F00492D46 /* MVVMDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4C203FC6224B9F040074BF43 /* Cell */,
+				4C2315E5224A1E7B00F64090 /* Constant */,
+				4C298B4322426AC60089B67F /* Assets */,
+				4C298B40224269140089B67F /* Model */,
+				4C298B3D2242688C0089B67F /* Helper */,
+				4C298B2622423CE10089B67F /* Network */,
+				4C24FB6E223F93B200492D46 /* ViewModel */,
+				4C24FB6D223F93A200492D46 /* ViewController */,
 				4C24FB3F223F934F00492D46 /* AppDelegate.swift */,
 				4C24FB41223F934F00492D46 /* ViewController.swift */,
 				4C24FB43223F934F00492D46 /* Main.storyboard */,
@@ -123,6 +170,56 @@
 				4C24FB61223F935600492D46 /* Info.plist */,
 			);
 			path = MVVMDemoUITests;
+			sourceTree = "<group>";
+		};
+		4C24FB6D223F93A200492D46 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4C203FCB224BA9DF0074BF43 /* MovieViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4C24FB6E223F93B200492D46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C298B2422423C520089B67F /* MovieViewModel.swift */,
+				4C298B392242660D0089B67F /* MovieDataSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C298B2622423CE10089B67F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4C298B3B2242685D0089B67F /* MovieAPIService.swift */,
+				4C30446C22439DAE006FC449 /* Networking.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4C298B3D2242688C0089B67F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C203FC4224B9B1C0074BF43 /* UIImageViewExtension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4C298B40224269140089B67F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C298B412242692E0089B67F /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C298B4322426AC60089B67F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C298B4422426AEE0089B67F /* movie.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +328,9 @@
 			files = (
 				4C24FB4A223F935600492D46 /* LaunchScreen.storyboard in Resources */,
 				4C24FB47223F935600492D46 /* Assets.xcassets in Resources */,
+				4C298B4522426AEE0089B67F /* movie.json in Resources */,
 				4C24FB45223F934F00492D46 /* Main.storyboard in Resources */,
+				4C203FCA224B9F1C0074BF43 /* MovieViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +355,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C203FC5224B9B1C0074BF43 /* UIImageViewExtension.swift in Sources */,
+				4C298B3A2242660D0089B67F /* MovieDataSource.swift in Sources */,
+				4C203FCC224BA9DF0074BF43 /* MovieViewController.swift in Sources */,
+				4C298B3C2242685D0089B67F /* MovieAPIService.swift in Sources */,
 				4C24FB42223F934F00492D46 /* ViewController.swift in Sources */,
+				4C30446D22439DAE006FC449 /* Networking.swift in Sources */,
 				4C24FB40223F934F00492D46 /* AppDelegate.swift in Sources */,
+				4C203FC9224B9F1C0074BF43 /* MovieViewCell.swift in Sources */,
+				4C298B422242692E0089B67F /* Movie.swift in Sources */,
+				4C298B2522423C520089B67F /* MovieViewModel.swift in Sources */,
+				4C2315E7224A1E9C00F64090 /* AppURL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,14 +540,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GA4BAP9K3F;
 				INFOPLIST_FILE = MVVMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.www.demoLib.MVVMDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = www.www.abc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -449,14 +560,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GA4BAP9K3F;
 				INFOPLIST_FILE = MVVMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = www.www.demoLib.MVVMDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = www.www.abc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
