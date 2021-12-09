@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2751CF26276257CB00A6E6DA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751CF25276257CB00A6E6DA /* UIColor+Hex.swift */; };
 		4C203FC5224B9B1C0074BF43 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C203FC4224B9B1C0074BF43 /* UIImageViewExtension.swift */; };
 		4C203FC9224B9F1C0074BF43 /* MovieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C203FC7224B9F1C0074BF43 /* MovieViewCell.swift */; };
 		4C203FCA224B9F1C0074BF43 /* MovieViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C203FC8224B9F1C0074BF43 /* MovieViewCell.xib */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2751CF25276257CB00A6E6DA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		4C203FC4224B9B1C0074BF43 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		4C203FC7224B9F1C0074BF43 /* MovieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewCell.swift; sourceTree = "<group>"; };
 		4C203FC8224B9F1C0074BF43 /* MovieViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewCell.xib; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				4C203FCB224BA9DF0074BF43 /* MovieViewController.swift */,
+				2751CF25276257CB00A6E6DA /* UIColor+Hex.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				4C24FB40223F934F00492D46 /* AppDelegate.swift in Sources */,
 				4C203FC9224B9F1C0074BF43 /* MovieViewCell.swift in Sources */,
 				4C298B422242692E0089B67F /* Movie.swift in Sources */,
+				2751CF26276257CB00A6E6DA /* UIColor+Hex.swift in Sources */,
 				4C298B2522423C520089B67F /* MovieViewModel.swift in Sources */,
 				4C2315E7224A1E9C00F64090 /* AppURL.swift in Sources */,
 			);

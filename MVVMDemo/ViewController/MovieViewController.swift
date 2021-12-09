@@ -10,6 +10,8 @@ import UIKit
 
 class MovieViewController: UIViewController {
     
+    
+    
     //MARK: Internal Properties
     
     let tableView = UITableView(frame: .zero, style: .plain)
@@ -22,7 +24,7 @@ class MovieViewController: UIViewController {
     var filterButton: UIButton {
         let button = UIButton(frame: .zero)
         button.setTitle("Filter By Name", for: .normal)
-        button.backgroundColor = .red
+        button.backgroundColor = .systemPink
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(filterButtonTapped(_:)), for: .touchUpInside)
         return button
@@ -32,16 +34,18 @@ class MovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Movies"
+        self.navigationController?.hidesBarsOnSwipe = true
+
         // Do any additional setup after loading the view.
         prepareUI()
-        setData()
+//        setData()
         fetchMovieList()
     }
     
-    func setData() {
-        self.navigationItem.title = "Movie"
-    }
+//    func setData() {
+//        self.navigationItem.title = "Movies"
+//    }
     
 }
 
@@ -70,8 +74,9 @@ extension MovieViewController {
     }
     
     func prepareTableView() {
-        self.view.backgroundColor = .white
-        self.tableView.separatorStyle   = .none
+        let newBlue = UIColor(rgb: 151954)
+        self.view.backgroundColor = newBlue
+        self.tableView.separatorStyle   = UITableViewCell.SeparatorStyle.singleLine
         self.tableView.delegate = self
         self.tableView.dataSource = self
          self.tableView.register(UINib(nibName: "MovieViewCell", bundle: nil), forCellReuseIdentifier: "MovieViewCell")
@@ -136,5 +141,6 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.estimatedRowHeight = 160
         tableView.rowHeight = UITableView.automaticDimension
         return UITableView.automaticDimension
+    
     }
 }
