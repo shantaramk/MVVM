@@ -13,6 +13,8 @@ class MovieViewController: UIViewController {
     
     
     //MARK: Internal Properties
+    let searchBar = UISearchBar()
+    
     
     let tableView = UITableView(frame: .zero, style: .plain)
     var stackView: UIStackView {
@@ -39,14 +41,9 @@ class MovieViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         prepareUI()
-//        setData()
         fetchMovieList()
+        
     }
-    
-//    func setData() {
-//        self.navigationItem.title = "Movies"
-//    }
-    
 }
 
 //MARK: Prepare UI
@@ -58,6 +55,7 @@ extension MovieViewController {
         prepareTableView()
         prepareStackView()
         prepareViewModelObserver()
+        prepareNavBar()
     }
     
     func prepareStackView() {
@@ -74,8 +72,6 @@ extension MovieViewController {
     }
     
     func prepareTableView() {
-        let newBlue = UIColor(rgb: 151954)
-        self.view.backgroundColor = newBlue
         self.tableView.separatorStyle   = UITableViewCell.SeparatorStyle.singleLine
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -85,9 +81,48 @@ extension MovieViewController {
     
     func prepareButton() {
        self.view.addSubview(filterButton)
-       // self.filterButton.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
+//        self.filterButton.heightAnchor.constraint(equalToConstant: 45.0).isActive = true
+    }
+    
+    @objc func handleShowSearchBar() {
+
+        search(shouldShow: true)
+        searchBar.becomeFirstResponder()
+    }
+    
+    func prepareNavBar() {
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Movies"
+        navigationController?.navigationBar.barTintColor = UIColor(red: 150/255, green: 100/255, blue: 50/255, alpha: 1)
+        showSearchButton(shouldShow: true)
+    }
+    func showSearchButton(shouldShow:Bool) {
+        if shouldShow {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                                target: self,
+                                                                action:#selector(handleShowSearchBar))
+        
+        }else {
+            navigationItem.rightBarButtonItem = nil
+        }
+    }
+    
+    func search(shouldShow:Bool) {
+        showSearchButton(shouldShow: !shouldShow)
+        searchBar.showsCancelButton = shouldShow
+        navigationItem.titleView = shouldShow ? searchBar: nil
     }
 }
+
+extension MovieViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        search(shouldShow: false)
+    }
+}
+
 
 //MARK: Action
 
@@ -144,3 +179,5 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource {
     
     }
 }
+
+
